@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+   redisdb:
+     container_name: redisdb
+     restart: always
+     ports:
+       - "6379:6379"
+   cron-webapi:
+     environment:
+       - ASPNETCORE_ENVIRONMENT=dev
+       - ASPNETCORE_URLS=http://+:80
+     ports:
+       - "80:80"
+     volumes:
+       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

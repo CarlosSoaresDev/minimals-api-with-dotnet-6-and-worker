@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  redisdb:
+    image: redis  
+  cron-webapi:
+    image: ${DOCKER_REGISTRY-}cronwebapi
+    build:
+      context: .
+      dockerfile: src/cron-webapi/Dockerfile
+    depends_on:
+      - redisdb

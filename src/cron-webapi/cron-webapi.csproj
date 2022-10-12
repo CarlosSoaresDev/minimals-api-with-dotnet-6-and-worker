@@ -7,6 +7,9 @@
     <RootNamespace>cron_webapi</RootNamespace>
     <UserSecretsId>4f0b8d47-496d-4c9f-853a-3d325ef3b28f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerfileFile>..\..\Dockerfile</DockerfileFile>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>

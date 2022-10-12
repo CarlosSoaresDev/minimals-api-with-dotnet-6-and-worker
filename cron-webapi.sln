@@ -7,6 +7,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4DF026B0-900
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cron-webapi", "src\cron-webapi\cron-webapi.csproj", "{A75D688B-4AD9-473E-AC98-0C035C7C7D8A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infra", "infra", "{CC101EF6-FBFD-4177-9BE1-DD6BEA33C268}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{47CC2F4C-B885-4019-BBF6-F39DCA384E37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +24,17 @@ Global
 		{A75D688B-4AD9-473E-AC98-0C035C7C7D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75D688B-4AD9-473E-AC98-0C035C7C7D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75D688B-4AD9-473E-AC98-0C035C7C7D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47CC2F4C-B885-4019-BBF6-F39DCA384E37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47CC2F4C-B885-4019-BBF6-F39DCA384E37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47CC2F4C-B885-4019-BBF6-F39DCA384E37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47CC2F4C-B885-4019-BBF6-F39DCA384E37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A75D688B-4AD9-473E-AC98-0C035C7C7D8A} = {4DF026B0-9001-462D-A2D7-B02BB3B0761F}
+		{47CC2F4C-B885-4019-BBF6-F39DCA384E37} = {CC101EF6-FBFD-4177-9BE1-DD6BEA33C268}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2BE718C7-36A1-4E0D-83F8-C0CC58D51740}

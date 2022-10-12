@@ -1,5 +1,7 @@
 using cron_webapi.Service;
 using cron_webapi.Worker;
+using Microsoft.Extensions.Configuration;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,17 +9,24 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHostedService<CronJobScheduler>();
 builder.Services.AddSingleton<ICronJobService, CronJobService>();
-builder.Services.AddDistributedMemoryCache();
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
+    .AddEnvironmentVariables();
+
+if (Debugger.IsAttached)
+    builder.Services.AddDistributedMemoryCache();
+else
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = builder.Configuration.GetConnectionString("RedisConnect");
+    });
+
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapGet("/Cron/History", async (ICronJobService service) =>
 {
