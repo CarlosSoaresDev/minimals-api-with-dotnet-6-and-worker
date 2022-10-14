@@ -14,7 +14,7 @@ builder.Configuration
     .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true)
     .AddEnvironmentVariables();
 
-if (Debugger.IsAttached)
+if (builder.Environment.EnvironmentName.Equals("local") || Debugger.IsAttached)
     builder.Services.AddDistributedMemoryCache();
 else
     builder.Services.AddStackExchangeRedisCache(options =>
