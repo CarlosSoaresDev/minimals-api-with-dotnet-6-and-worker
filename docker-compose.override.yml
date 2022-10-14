@@ -7,6 +7,7 @@ services:
      ports:
        - "6379:6379"
    cron-webapi:
+     container_name: cron-webapi
      environment:
        - ASPNETCORE_ENVIRONMENT=dev
        - ASPNETCORE_URLS=http://+:80

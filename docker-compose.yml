@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   redisdb:
-    image: redis  
+    image: redis
   cron-webapi:
     image: ${DOCKER_REGISTRY-}cronwebapi
     build:

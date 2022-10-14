@@ -1,7 +1,5 @@
 using cron_webapi.Service;
 using cron_webapi.Worker;
-using Microsoft.Extensions.Configuration;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +19,6 @@ else
     {
         options.Configuration = builder.Configuration.GetConnectionString("RedisConnect");
     });
-
 
 var app = builder.Build();
 
